@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Link, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+
+import ReactDOM from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <nav className='navbar'><Link to={'/'}>Home <FontAwesomeIcon icon={faHome} color="white"/></Link></nav>
+        <Home/>
+        <Switch>
+          <Route exact path='/all'/>
+          <Route exact path='/random'/>
+          <Route exact path='/new'/>
+        </Switch>
+
+      
       </div>
     );
   }
